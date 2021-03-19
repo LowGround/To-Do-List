@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true}); //connecting to our mongodb server and creating a new db: todolistDB
+mongoose.connect("mongodb+srv://admin-eddie:Eddielee1@test-cluster.bct2o.mongodb.net/todolistDB", {useNewUrlParser: true}); //connecting to our mongodb server and creating a new db: todolistDB
 
 
 //creating a schema
