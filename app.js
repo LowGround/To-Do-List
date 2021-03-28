@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require('.\dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser"); //body parser to grab the body from our req
 const date = require(__dirname + "/date.js"); //importing our custom module from date.js
@@ -10,9 +10,11 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+const uri = process.env.MONGO_URI;
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://admin-eddie:Eddielee1@test-cluster.bct2o.mongodb.net/todolistDB", {useNewUrlParser: true}); //connecting to our mongodb server and creating a new db: todolistDB
+mongoose.connect(`${uri}`, {useNewUrlParser: true}); //connecting to our mongodb server and creating a new db: todolistDB
 
 
 //creating a schema
